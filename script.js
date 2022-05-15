@@ -1,37 +1,3 @@
-export const questionsData= [
-  {
-    question: "Which language runs in a web browser?",
-    a: "Java",
-    b: "C",
-    c: "Python",
-    d: "JavaScript",
-    correct: "JavaScript",
-  },
-  {
-    question: "What does CSS stand for?",
-    a: "Central Style Sheets",
-    b: "Cascading Style Sheets",
-    c: "Cascading Simple Sheets",
-    d: "Corrected Sheet Source",
-    correct: "Cascading Style Sheets",
-  },
-  {
-    question: "What does HTML stand for?",
-    a: "Hypertext Markup Language",
-    b: "Hypertext Markdown Language",
-    c: "Hyperloop Machine Language",
-    d: "Hypertransform Markdown Language",
-    correct: "Hypertext Markup Language",
-  },
-  {
-    question: "What year was JavaScript launched?",
-    a: "1996",
-    b: "1995",
-    c: "1994",
-    d: "none of the above",
-    correct: "1995",
-  },
-];
 
 const quiz = document.getElementById("quiz");
 const answerEls = document.querySelectorAll(".answer");

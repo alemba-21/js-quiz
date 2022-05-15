@@ -20,31 +20,31 @@
           <h2 id="question">Question Text</h2>
 
           <!-- ordered and unordered list section -->
-          <ul>
-            <li>
-              <input type="radio" name="answer" id="a" class="answer" />
-              <label for="a" id="a_text">Question</label>
-            </li>
-            <li>
-              <input type="radio" name="answer" id="b" class="answer" />
-              <label for="b" id="b_text">Question</label>
-            </li>
-            <li>
-              <input type="radio" name="answer" id="c" class="answer" />
-              <label for="c" id="c_text">Question</label>
-            </li>
-            <li>
-              <input type="radio" name="answer" id="d" class="answer" />
-              <label for="d" id="d_text">Question</label>
-            </li>
-          </ul>
-        </div>
+            <ul type="A">
+              <li class="option"><span id="option0"></span></li>
+              <li class="option"><span id="option1"></span></li>
+              <li class="option"><span id="option2"></span></li>
+              <li class="option"><span id="option3"></span></li>
+            </ul>
 
         <!-- button section -->
-           
-      <button type="submit" id="submit">Submit</button>
-
+        <div class="btn">
+          <button type="button" class="Next"></button>
+        </div>
   </div>
+
+    <!-- scoreboard section -->
+        <div id="scoreboard">
+
+         <!-- logo icon -->
+           <h2>Trivia <span>Quest</span></h2>
+           <h2 id="score-title">Your score</h2>
+           <h2 id="score"></h2>
+           <button type="button" id="score-btn">Back to Quiz</button>
+           <button type="button" id="check-answer">Check Answers</button>
+        </div>
+
+        <!-- javascript file source -->
     <script src="./script.js" type="module"></script>
     
   </body>

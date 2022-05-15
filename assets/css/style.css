@@ -37,9 +37,23 @@ body {
 }
 
 .quiz-header {
+  padding-top: 210px;
+  padding-left: 440px;
+  font-size: 30px;
+}
+
+ul li{
   
 }
 
+/* button section */
+#submit{
+  background-color: blue;
+  font-size: larger;
+  border-radius: 20px;
+  padding: 3px;
+  margin: 10px;
+}
 
 
 
