@@ -1,91 +1,65 @@
- 
-//Question bank
-var questionBank= [
-  {
-    question : "Which language runs in a web browser?",
-    option : ['Java', 'C', 'Python', 'JavaScript'],
-    correct : "JavaScript",
-  },
-  {
-    question: "What does CSS stand for?",
-    option : ['Central Style Sheets', 'Cascading Style Sheet', 'Cascading Simple Sheets', 'Corrected Sheet Source'],
-    correct: "Cascading Style Sheets",
-  },
-  {
-    question: "What does HTML stand for?",
-    option : ['Hypertext Markup Language', 'Hypertext Markdown Language', 'Hyperloop Machine Language', 'Hypertransform Markdown Language'],
-    correct: "Hypertext Markup Language",
-  },
-  {
-    question: "What year was JavaScript launched?",
-    option : ['1996', '1995', '1994', 'none of the above'],
-    correct: "1995",
-  },
-]
+import { questionsData } from "./questions.js";
 
-var question= document.getElementById('question');
-var quizContainer= document.getElementById('quiz-container');
-var scorecard= document.getElementById('scorecard');
-var option0= document.getElementById('option0');
-var option1= document.getElementById('option1');
-var option2= document.getElementById('option2');
-var option3= document.getElementById('option3');
-var next= document.querySelector('.next');
-var points= document.getElementById('score');
-var span= document.querySelectorAll('span');
-var i=0;
-var score= 0;
+const quiz = document.getElementById("quiz");
+const answerEls = document.querySelectorAll(".answer");
+const questionEl = document.getElementById("question");
+const a_text = document.getElementById("a_text");
+const b_text = document.getElementById("b_text");
+const c_text = document.getElementById("c_text");
+const d_text = document.getElementById("d_text");
+const submitBtn = document.getElementById("submit");
 
-//function to display questions
-function displayQuestion(){
-    for(var a=0;a<span.length;a++){
-        span[a].style.background='none';
-    }
-    question.innerHTML= 'Q.'+(i+1)+' '+questionBank[i].question;
-    option0.innerHTML= questionBank[i].option[0];
-    option1.innerHTML= questionBank[i].option[1];
-    option2.innerHTML= questionBank[i].option[2];
-    option3.innerHTML= questionBank[i].option[3];
-    stat.innerHTML= "Question"+' '+(i+1)+' '+'of'+' '+questionBank.length;
+let currentQuiz = 0;
+
+let score = 0;
+
+loadQuiz();
+
+function loadQuiz() {
+  deselectAnswers();
+
+  const currentQuizData = questionsData[currentQuiz];
+
+  questionEl.innerText = currentQuizData.question;
+  a_text.innerText = currentQuizData.a;
+  b_text.innerText = currentQuizData.b;
+  c_text.innerText = currentQuizData.c;
+  d_text.innerText = currentQuizData.d;
 }
 
-//function to calculate scores
-
-//function to display next question
-function nextQuestion(){
-    if(i<questionBank.length-1)
-    {
-        i=i+1;
-        displayQuestion();
-    }
-    else{
-        points.innerHTML= score+ '/'+ questionBank.length;
-        quizContainer.style.display= 'none';
-        scoreboard.style.display= 'block'
-    }
+function deselectAnswers() {
+  answerEls.forEach((answerEl) => (answerEl.checked = false));
 }
 
-//click events to next button
-next.addEventListener('click',nextQuestion);
-
-//Back to Quiz button event
-function backToQuiz(){
-    location.reload();
-}
-
-//function to check Answers
-function checkAnswer(){
-    var answerBank= document.getElementById('answerBank');
-    var answers= document.getElementById('answers');
-    answerBank.style.display= 'block';
-    scoreboard.style.display= 'none';
-    for(var a=0;a<questionBank.length;a++)
-    {
-        var list= document.createElement('li');
-        list.innerHTML= questionBank[a].answer;
-        answers.appendChild(list);
+function getSelected() {
+  let answer;
+  answerEls.forEach((answerEl) => {
+    if (answerEl.checked) {
+      answer = answerEl.id;
     }
+  });
+
+  return answer;
 }
 
+submitBtn.addEventListener("click", () => {
+  const answer = getSelected();
+  // console.log(answer);
 
-displayQuestion();
+  if (answer === questionsData[currentQuiz].correct) {
+    score++;
+  }
+  currentQuiz++;
+
+  if (currentQuiz < questionsData.length) {
+    loadQuiz();
+  } else {
+    quiz.innerHTML = `<h2>Your Score: 
+    <br> 
+    ${score}/${questionsData.length}
+    <h2>
+    
+    <onclick="location.reload()"></button>
+    `;
+  }
+});

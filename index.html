@@ -8,61 +8,33 @@
     <title>Quiz App</title>
   </head>
   <body>
-      <!-- body section --> 
-    <nav>
-      <div class="home_page">
-        <h2>Trivia <span>Quest</span></h2>
+    <div id="logo">
+       <h2>Trivia<span>Quest</span></h2>
+    </div>
+    <div class="quiz-container" id="quiz">
+      <div class="quiz-header">
+        <h2 id="question">Question Text</h2>
+        <ul>
+          <li>
+            <input type="radio" name="answer" id="a" class="answer" />
+            <label for="a" id="a_text">Question</label>
+          </li>
+          <li>
+            <input type="radio" name="answer" id="b" class="answer" />
+            <label for="b" id="b_text">Question</label>
+          </li>
+          <li>
+            <input type="radio" name="answer" id="c" class="answer" />
+            <label for="c" id="c_text">Question</label>
+          </li>
+          <li>
+            <input type="radio" name="answer" id="d" class="answer" />
+            <label for="d" id="d_text">Question</label>
+          </li>
+        </ul>
       </div>
-    </nav>
-      <!-- question section -->
-      <div id="quiz-container">
-        <!-- question container -->
-        <div class="questions">
-          <h2 id="question">Question Text</h2>
-
-          <!-- ordered and unordered list section -->
-            <ol type="A">
-              <li class="option"><span id="option0" onclick="calcScore(this)"></span></li>
-              <li class="option"><span id="option1" onclick="calcScore(this)"></span></li>
-              <li class="option"><span id="option2" onclick="calcScore(this)"></span></li>
-              <li class="option"><span id="option3" onclick="calcScore(this)"></span></li>
-            </ol>
-            <h4 id="stat"></h4>
-        </div>
-        <!-- button section -->
-        <div class="btn">
-          <button type="button" class="next">Next</button>
-        </div>
-  </div>
-
-    <!-- scoreboard section -->
-        <div id="scoreboard">
-
-         <!-- logo icon -->
-           <h2>Trivia <span>Quest</span></h2>
-           <!-- end of logo icon -->
-
-          <!-- score section -->
-           <h2 id="score-title">Your score</h2>
-           <h2 id="score"></h2>
-           <button type="button" id="score-btn" onclick="backToQuiz">Back to Quiz</button>
-           <button type="button" id="check-answer" onclick="checkAnswer">Check Answers</button>
-        </div>
-          <!-- end of score section -->
-
-          <!-- answers section -->
-              <div id="answerBank">
-                <h2>Answers :</h2>
-                <ol type="1">
-
-                </ol>
-                  <button type="button" id="score-btn" onclick="backToQuiz">Back to Quiz</button>
-
-              </div>
-    <!-- end of scoreboard section -->
-
-        <!-- javascript file source -->
-    <script src="./script.js" type="module"></script>
-    
+    </div>
+    <button type="submit" id="submit">Submit</button>
+    <script src="script.js" type="module"></script>
   </body>
 </html>
