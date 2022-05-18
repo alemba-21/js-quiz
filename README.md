@@ -22,8 +22,7 @@ JAVASCRIPT - For functionality of the webpage
 ## Known Bugs
 So far so good there are no bugs related to this project
 
-## Support and contact details
-To make a contribution to the code used or any suggestions you can click on the contact link and email me your suggestions.
+
 
 Email: alembakiragu@gmail.com Phone: +254791267737
 
